@@ -31,3 +31,9 @@ This game was produced with AI assistance by one human economic owner. Commercia
 ## Release integrity
 
 Authored source under `index.html`, `style.css`, `main.mjs`, `puzzle.mjs` and `favicon.svg`. Static GitHub Pages deploy ships those five files only. Unit tests and original headless browser QA are in `tests/`, excluded from public gameplay upload.
+
+## Qualified publisher licensing inquiry
+
+An original review-only publisher sheet for a possible **non-exclusive, one-named-domain** HTML5 license is available at [Echobloom Atlas Publisher Kit](https://livastic-vm5-primary-20260911.github.io/echobloom-atlas-browser-logic-puzzle-20261020/publisher.html). The starting quotation is **USD 149 equivalent**, with one scoped branding pass and one revision, always **subject to written acceptance and verified legal rights/payout compliance**. This is an invitation to negotiate, not a paid order or a license granted by browsing this page. Actual revenue from this sheet as of publication: **zero**.
+
+The playable game itself remains strictly free of outside-site links, advertising, names, ads SDKs and analytics. The separate publisher page includes original browser QA screenshots and a mailto contact for **genuine funded** editorial/buyer inquiries. No full commercial package is sent before an actual mutually accepted agreement.
