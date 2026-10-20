@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101c2b">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Echobloom Atlas is an original calm logic puzzle. Light every tile by reasoning through linked neighbors and diagonal echo tiles. 18 guaranteed-solvable stages, standalone browser preview; optional GamePix advertisements between completed stages after platform publishing approval.">
+<title>Echobloom Atlas | GamePix publisher candidate</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="stylesheet" href="./style.css">
+<script src="https://integration.gamepix.com/sdk/v3/gamepix.sdk.js"></script>
+<script type="module" src="./gamepix-bootstrap.mjs"></script>
+</head>
+<body>
+<div class="light-bloom light-one" aria-hidden="true"></div><div class="light-bloom light-two" aria-hidden="true"></div>
+<div class="app">
+<header class="masthead">
+ <a class="brand" href="#" aria-label="Echobloom Atlas — title" id="logo"><span class="brand-emblem" aria-hidden="true">✧</span><span>ECHOBLOOM <strong>ATLAS</strong><small>A QUIET LOGIC GARDEN</small></span></a>
+ <div class="masthead-actions"><span class="offline-flag"><i></i> GAMEPIX · PLAY FREE</span><button class="ghost small" type="button" id="how" aria-haspopup="dialog">How to play <span aria-hidden="true">↗</span></button><button class="ghost small" type="button" id="sound" aria-pressed="false">Sound off <span aria-hidden="true">♪</span></button></div>
+</header>
+<main>
+<section class="intro" aria-label="Game introduction">
+ <p class="eyebrow"><span class="mini-star">✦</span> ONE SMALL MOVE CHANGES THE GARDEN</p>
+ <h1>Make every <em>light</em> bloom.</h1>
+ <p class="deck">Each touch flips a little constellation. Think ahead, follow the echoes, and return the whole garden to light.</p>
+ <div class="legend" aria-label="Puzzle rules">
+  <div><span class="legend-symbol core">✺</span><span><strong>Ordinary tile</strong><small>Flips itself + four sides</small></span></div>
+  <div><span class="legend-symbol echo">◇</span><span><strong>Echo tile</strong><small>Also flips diagonal neighbors</small></span></div>
+ </div>
+ <div class="session">
+  <div><strong id="chapter-progress">01 / 18</strong><small>GARDENS RESTORED</small></div>
+  <div><strong id="best-progress">—</strong><small>FEWEST MOVES</small></div>
+ </div>
+ <div class="note"><span aria-hidden="true">✧</span><p>18 fully playable stages, no timer or account required. GamePix may display an ad after a completed stage; progress stays in this browser and can be cleared by browser storage policies.</p></div>
+</section>
+<section class="puzzle-panel" aria-label="Current puzzle">
+ <div class="stage-head">
+  <div class="stage-heading"><span class="stage-kicker" id="stage-number">GARDEN 01</span><h2 id="stage-name">First light</h2></div>
+  <div class="moves-head"><strong id="move-count">00</strong><small>MOVES MADE</small></div>
+ </div>
+ <div class="progress-rail" aria-label="Garden illumination progress"><span id="progress-fill"></span></div>
+ <div class="board-shell"><div class="board-glow" aria-hidden="true"></div><div id="board" class="board" role="grid" aria-label="Echobloom Atlas garden puzzle: use arrow keys and Enter or tap cells" aria-describedby="rule-instructions"></div></div>
+ <p id="rule-instructions" class="board-caption"><span id="lit-count">0 of 9 lights on</span><span class="board-caption-right">Tap · Enter · Arrow keys</span></p>
+ <div class="puzzle-controls">
+  <button type="button" class="control" id="undo" disabled><span aria-hidden="true">↶</span> Undo</button>
+  <button type="button" class="control" id="reset"><span aria-hidden="true">⟳</span> Restart</button>
+  <button type="button" class="control primary" id="hint"><span aria-hidden="true">✧</span> Show hint</button>
+ </div>
+ <div id="win-panel" class="win-panel" hidden aria-live="polite"><span class="win-star" aria-hidden="true">✦</span><div><strong id="win-title">Garden restored!</strong><small id="win-subtitle">Every lantern is glowing.</small></div><button type="button" class="next-btn" id="next">Next garden <span aria-hidden="true">→</span></button></div>
+</section>
+</main>
+<section class="chapter-list" aria-labelledby="chapters-title">
+ <div class="chapter-header"><h2 id="chapters-title">Your little atlas</h2><span id="unlocked-label">1 / 18 unlocked</span></div>
+ <div class="chapter-scroller" id="chapters" role="group" aria-label="Select unlocked garden level"></div>
+</section>
+<footer><span>ORIGINAL WEB PUZZLE · 2026</span><span>OPTIONAL GAMEPIX SDK · LOCAL PROGRESS</span><span>MADE TO BE SOLVED, NOT SCROLLED</span></footer>
+</div>
+<div id="how-dialog" class="modal-backdrop" hidden>
+ <div role="dialog" aria-modal="true" aria-label="How to play Echobloom Atlas" aria-labelledby="how-title" class="modal">
+  <div class="modal-top"><span class="stage-kicker">A LITTLE FIELD GUIDE</span><button type="button" id="close-how" aria-label="Close how to play" class="close">✕</button></div>
+  <h2 id="how-title">One touch. Many changes.</h2>
+  <p>Every tile is either dim or glowing. Your job is to make <strong>every tile glow at once</strong>.</p>
+  <div class="rule-row"><b class="rule-square">✺</b><p><strong>Ordinary tiles</strong> flip themselves and adjacent tiles above, below, left and right. No wraparound at the edges.</p></div>
+  <div class="rule-row"><b class="rule-square pink">◇</b><p><strong>Echo tiles</strong> add the four diagonal neighbors. Echo power is tied to the tile you touch.</p></div>
+  <div class="rule-row"><b class="rule-square">↶</b><p>Each move can be undone. Restart is free. A hint highlights a step that belongs to a valid solution from your <em>current</em> board.</p></div>
+  <p class="muted">Try tap or click. For keyboard play, focus a tile, move with arrow keys and press Enter or Space. Press R to restart, H for a hint, and Escape to close this guide.</p>
+  <button type="button" id="got-it" class="large-action">Got it — let’s glow ✧</button>
+ </div>
+</div>
+<div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
