@@ -51,7 +51,12 @@ try{
    assert.equal(await page.locator("#move-count").innerText(),"00");
    await page.locator("#hint").click();
    assert.equal(await page.locator(".tile.hinted").count(),1);
-   await page.locator("#reset").click().catch(()=>{});
+   // A restart after Undo is disabled by design; never wait 30s on a disabled button.
+   assert.equal(await page.locator("#reset").isEnabled(),false);
+   await page.locator("#board button").first().click();
+   assert.equal(await page.locator("#reset").isEnabled(),true);
+   await page.locator("#reset").click();
+   assert.equal(await page.locator("#move-count").innerText(),"00");
    await page.locator("#how").click();
    assert.equal(await page.locator("#how-dialog").isVisible(),true);
    await page.locator("#close-how").click();
